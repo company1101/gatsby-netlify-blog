@@ -7,8 +7,9 @@ $text-color: rgba(0, 0, 0, 0.8)
 
 $font-largest: 32px
 $font-large: 24px
-$font-normal: 14px
-$font-small: 12px
+$font-normal: 18px
+$font-small: 14px
+$font-smaller: 12px
 $font-smallest: 11px
 
 .navbar .navbar-menu
@@ -57,9 +58,9 @@ $font-smallest: 11px
   align-items: center
   span
     margin: 0 5px
-    font-size: $font-normal
+    font-size: $font-small
     @media only screen and (max-width: 768px)
-      font-size: $font-small
+      font-size: $font-smaller
 
 .icon-list
   display: flex
@@ -82,7 +83,7 @@ $font-smallest: 11px
         margin-right: 3px
       span
         color: black
-        font-size: $font-small
+        font-size: $font-smaller
         @media only screen and (max-width: 768px)
           font-size: $font-smallest
 
@@ -100,14 +101,14 @@ $font-smallest: 11px
 .content .text
   width: 100%
   font-weight: 400
-  font-size: $font-normal
+  font-size: $font-small
   @media only screen and (max-width: 768px)
-    font-size: $font-small
+    font-size: $font-smaller
 
 .content .has-text-primary
-  font-size: $font-large
   font-weight: 700
   text-align: center
+  font-size: $font-large
   @media only screen and (max-width: 768px)
     font-size: $font-normal
 
@@ -127,21 +128,21 @@ $font-smallest: 11px
     margin-top: 0
 
 .content .date
-  font-size: $font-small;
+  font-size: $font-smaller;
   @media only screen and (max-width: 768px)
     font-size: $font-smallest
   font-style: italic
   margin-bottom: 30px !important
 
 .content .button
-  font-size: $font-small;
+  font-size: $font-smaller;
   @media only screen and (max-width: 768px)
     font-size: $font-smallest
 
 .footer-container
   padding-bottom: 30px
   background-color: $body-color
-  font-size: $font-small
+  font-size: $font-smaller
   @media only screen and (max-width: 768px)
     font-size: $font-smallest
   color: $text-color
@@ -165,11 +166,11 @@ $font-smallest: 11px
   margin-top: 0 !important
 
 .column
-  font-size: $font-normal
+  font-size: $font-small
   margin-top: 30px
   margin-bottom: 30px
   @media only screen and (max-width: 768px)
-    font-size: $font-small
+    font-size: $font-smaller
   h1
     font-size: $font-largest !important
     @media only screen and (max-width: 768px)
@@ -177,10 +178,10 @@ $font-smallest: 11px
   h2
     font-size: $font-large
     @media only screen and (max-width: 768px)
-      font-size: $font-normal
-  h3
-    font-size: $font-normal
-    @media only screen and (max-width: 768px)
       font-size: $font-small
+  h3
+    font-size: $font-small
+    @media only screen and (max-width: 768px)
+      font-size: $font-smaller
 
 @import "~bulma"
