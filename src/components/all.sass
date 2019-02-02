@@ -1,16 +1,110 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-// Kalidi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+$primary: #34C6D3
+$primary-invert: #7adae2
+$body-color: #fcfcfc
+$text-color: rgba(0, 0, 0, 0.8)
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
-$body-color: #333
+$font-largest: 32px
+$font-large: 24px
+$font-normal: 14px
+$font-small: 12px
+$font-smallest: 11px
 
 .navbar .navbar-menu
   box-shadow:none !important
+
+.navbar
+  background-color: $body-color !important
+  @media only screen and (max-width: 500px)
+    backgound-color: red !important
+
+.root-container
+  background-color: $body-color
+
+.nav-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  color: $text-color
+  margin: 0 auto;
+  padding: 60px 0 20px
+
+.nav-container .title_
+  margin-bottom: 10px
+  font-size: $font-largest
+  @media only screen and (max-width: 768px)
+    font-size: $font-large
+  font-weight: 700
+  color: $text-color
+
+.tag-container
+  margin-bottom: 20px
+
+.logo-box
+  display: flex
+  width: 150px
+  height: 150px
+  margin-bottom: 5px
+  border-radius: 100%
+  overflow: hidden
+  img
+    width: 300px
+
+.tag-box
+  display: flex;
+  justify-content: center
+  align-items: center
+  span
+    margin: 0 5px
+    font-size: $font-normal
+    @media only screen and (max-width: 768px)
+      font-size: $font-small
+
+.icon-list
+  display: flex
+  li
+    display: flex;
+    justify-content: center
+    align-items: center
+    height: 28px
+    width: 75px
+    margin: 0 6px
+    background-color: white
+    border: 1px solid #ddd
+    border-radius: 18px;
+    a
+      img
+        width: 14px
+        margin-right: 3px
+      span
+        color: black
+        font-size: $font-small
+        @media only screen and (max-width: 768px)
+          font-size: $font-smallest
+
+.content
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 1.5em
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1)
+  background-color: white;
+  color: $text-color
+
+.content .text
+  width: 100%
+  font-weight: 400
+  font-size: $font-normal
+  @media only screen and (max-width: 768px)
+    font-size: $font-small
+
+.content .has-text-primary
+  font-size: $font-large
+  font-weight: 700
+  text-align: center
+  @media only screen and (max-width: 768px)
+    font-size: $font-normal
 
 .content .taglist
   list-style: none
@@ -26,6 +120,22 @@ $body-color: #333
     padding: 0 2rem 1rem 0
     margin-bottom: 1.5rem
     margin-top: 0
+
+.content .date
+  font-size: $font-small;
+  @media only screen and (max-width: 768px)
+    font-size: $font-smallest
+  font-style: italic
+  margin-bottom: 30px !important
+
+.footer-container
+  padding-bottom: 30px
+  background-color: $body-color
+  font-size: $font-small
+  @media only screen and (max-width: 768px)
+    font-size: $font-smallest
+  color: $text-color
+  text-align: center
 
 // Helper Classes
 .full-width-image-container
