@@ -4,16 +4,17 @@ title: Gatsby+Netlify+Netilfy CMSでブログを作ってみた
 date: 2019-02-02T13:08:15.081Z
 description: 爆速なイケてるブログが5分で作れて感動した話
 tags:
-  - '#React #Gatsby'
+  - '#React'
+  - '#Gatsby'
 ---
 ## はじめに
 エンジニアたるものブログの一つも持っていないといかん！と誰かに言われている気がしていたのでブログを作った。
 
 はじめはWordpressでやろうと思っていたけど、魔窟感があってどうしてもやる気になれず。そんな中で、最近Reactを触っていて某氏のブログを拝見していたところ、Gatsbyなるものが速くてイケてるらしい、ということだったので流行りのNetlify CMSとの組み合わせでブログを作成してみた。
 
-※Gatsbyのインストール方法とかを解説するブログではないです。
+※Gatsbyのインストール方法とかを解説する記事ではないです。
 
-[Netlify CMSの登録はこちらからから！](https://www.netlifycms.org/)
+[Netlify CMSの登録はこちらから！](https://www.netlifycms.org/)
 
 ## Gatsby+Netlify+Netlify CMSとは
 - GatsbyはReactで作られた静的サイトジェネレータ。SPAなので速い。
@@ -40,6 +41,9 @@ tags:
 [https://www.gatsbyjs.org/plugins/](https://www.gatsbyjs.org/plugins/)
 
 テーマ機能はもともとなくテンプレートを最初に選ぶ(その後の変更は不可)感じだったけど2018年11月に導入された様子。早めに作って公開すれば有名になれるかも。
+
+### デフォルトのテーマのコードはあんまりきれいじゃないよ
+Bulma依存。ブログみたいなページ数が少ないサイトなら一から作ったほうがよさそう。
 
 ## 最後に
 ゆるく書いていきたい。

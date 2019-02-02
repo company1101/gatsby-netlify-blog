@@ -18,7 +18,7 @@ export default class IndexPage extends React.Component {
                   className="content"
                   key={post.id}
                 >
-                    <Link className="has-text-primary" to={post.fields.slug}>
+                    <Link className="link-title" to={post.fields.slug}>
                       {post.frontmatter.title}
                     </Link>
                     <p className="date" >

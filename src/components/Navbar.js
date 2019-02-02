@@ -33,9 +33,9 @@ const Navbar = class extends React.Component {
   
   <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
     <div className="nav-container">
-      <div className="logo-box">
+      <a className="logo-box" href="/">
         <img src="/img/top.jpg" alt="Top Logo"/>
-      </div>
+      </a>
       <h2 className="title_">
         H. Muraoka's Blog
       </h2>

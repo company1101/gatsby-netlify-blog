@@ -1,7 +1,9 @@
+// TODO: bulma依存しているけどtagの与え方が微妙で
+// !importantしないとカスタマイズしにくいので全部自分でかく(いつになることやら)
 @import "~bulma/sass/utilities/initial-variables"
 
-$primary: #34C6D3
 $primary-invert: #7adae2
+$primary: #34C6D3
 $body-color: #fcfcfc
 $text-color: rgba(0, 0, 0, 0.8)
 
@@ -49,8 +51,6 @@ $font-smallest: 11px
   margin-bottom: 5px
   border-radius: 100%
   overflow: hidden
-  img
-    width: 300px
 
 .tag-box
   display: flex;
@@ -105,12 +105,20 @@ $font-smallest: 11px
   @media only screen and (max-width: 768px)
     font-size: $font-smaller
 
-.content .has-text-primary
+.link-title
   font-weight: 700
   text-align: center
   font-size: $font-large
+  color: $primary
+  &:hover
+    color: $primary-invert
   @media only screen and (max-width: 768px)
     font-size: $font-normal
+
+.tag-header
+  font-size: $font-small
+  @media only screen and (max-width: 768px)
+    font-size: $font-smaller
 
 .content .taglist
   list-style: none
@@ -148,23 +156,6 @@ $font-smallest: 11px
   color: $text-color
   text-align: center
 
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 5em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
-
-.margin-top-0
-  margin-top: 0 !important
-
 .column
   font-size: $font-small
   margin-top: 30px
@@ -183,5 +174,31 @@ $font-smallest: 11px
     font-size: $font-small
     @media only screen and (max-width: 768px)
       font-size: $font-smaller
+  a
+    color: $primary
+    font-weight: 500
+    &:hover
+      color: $primary-invert
+
+
+.link-all-tag
+  color: $text-color
+
+// Helper Classes
+.full-width-image-container
+  width: 100vw
+  height: 400px
+  position: relative
+  left: 50%
+  right: 50%
+  margin: 5em -50vw
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+
+.margin-top-0
+  margin-top: 0 !important
 
 @import "~bulma"
