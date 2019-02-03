@@ -21,6 +21,16 @@ const TemplateWrapper = ({ children }) => (
       <div>
         <Helmet>
           <html lang="en" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131373055-2"></script>
+          <script>{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-131373055-2');
+          `}</script>
+
+
           <title>H. Muraoka's Blog</title>
           <meta name="description" content={data.site.siteMetadata.description} />
 
