@@ -17,7 +17,7 @@ tags:
 [Netlify CMSの登録はこちらから！](https://www.netlifycms.org/)
 
 ## Gatsby+Netlify+Netlify CMSとは
-- GatsbyはReactで作られた静的サイトジェネレータ。SPAなので速い。
+- GatsbyはReactで作られた静的サイトジェネレータ。SPAなのでページ遷移が速い。
 - NetlifyはHugoとGatsbyに対応しており、それらのビルド、githubへのデプロイ、ホスティングまでを個人ブログレベルの利用であれば__無料で__やってくれる。
 - Netlify CMSは簡単に言うならNetlifyに編集画面を提供するサービスで、保存されたらNetlifyを上から叩いてビルドやらなんやらを開始してくれる。
 - ということで一言でまとめると速い、安い、イケてるブログサービスであり要するにヤバい
