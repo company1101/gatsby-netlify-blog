@@ -40,7 +40,7 @@ sudo apt update
 
 `gcc`と`build-essential`は後でやるnvidiaドライバインストールに必要なのでここで入れておく。
 ```
-sudo apt install vim git zsh screen gcc build-essential
+sudo apt install vim git zsh curl screen gcc build-essential
 ```
 
 あとは[chrome](https://www.google.com/chrome/?brand=CHBD&gclid=Cj0KCQiA-8PjBRCWARIsADc18TL4rqXX7yuqHOGbdQpDq6qIFyqoWCo3oudPytr7LYABc0WZw25x7CMaArLMEALw_wcB&gclsrc=aw.ds)をインストール
@@ -57,6 +57,24 @@ sudo apt-get install neovim
 sudo apt-get install python-dev python-pip python3-dev python3-pip
 ```
 
+##### Docker CEのインストール
+まずは[公式](https://docs.docker.com/install/linux/docker-ce/ubuntu/)に従って、鍵登録からaptを叩いた。
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+しかし、途中でエラーが起きてdaemonが起動しなかったため、調べて(ソース紛失)、/etc/default/grubの`GRUB_CMDLINE_LINUX`に`cgroup_enable=memory swapaccount=1`を追加したところ、`docker`コマンドが叩けるようになった([参考](https://gihyo.jp/admin/serial/01/linux_containers/0003))。
+
+
 ##### エディタ、IDE
 公式から[Visual Studio Code](https://code.visualstudio.com/)と
 [Intellij IDEA](https://www.jetbrains.com/idea/)をダウンロードしてインストールした。いずれも設定ファイルをgithub上にアップロードしているので、Access Tokenを入力して環境をダウンロード。
@@ -70,9 +88,7 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:swapcaps']"
 ```
 
 ###### Input Methodの切り替え
-
-
-##### 日本語設定
+Alt+`に割り当てたいがすでにアプリケーションのSwitcher起動に割り当てられているため、これを無効にする。`sudo apt-get install compizconfig-settings-manager`としてインストールしたあとでcompizを立ち上げて、Ubuntu Unity Plugin -> SwitcherのKey to flip through windows in the Switcherに適当なショートカットを割り当てる。初期状態でこのショートカットはdisabledになっているが、実際にはなっていない！ので上書きする必要がある。
 
 
 ##### グラフィック関連
@@ -95,6 +111,5 @@ _保存したら、nvidiaではなくUbuntu側のSystem Settings -> Displaysか�
 ハードウェアの一覧を取得する`lshw`コマンドを使うと内蔵グラフィックは認識されているようだがわからないので要調査。
 
 #### 各種言語環境の構築
-極力ローカルで環境を作って、設定ファイルを共有するようにしたかった。
+TODO
 
-#### Dockerのインストール
