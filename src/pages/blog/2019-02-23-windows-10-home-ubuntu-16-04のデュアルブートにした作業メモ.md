@@ -57,6 +57,9 @@ sudo apt-get install neovim
 sudo apt-get install python-dev python-pip python3-dev python3-pip
 ```
 
+deopleteを動かすためにpythonが必要なので、anyenvで環境構築。`pip install pynvim`の後に、versions以下のフォルダのpythonの実行ファイルを直接`g:python_host_prog`に設定。
+
+
 ##### Docker CEのインストール
 まずは[公式](https://docs.docker.com/install/linux/docker-ce/ubuntu/)に従って、鍵登録からaptを叩いた。
 
@@ -74,6 +77,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 しかし、途中でエラーが起きてdaemonが起動しなかったため、調べて(ソース紛失)、/etc/default/grubの`GRUB_CMDLINE_LINUX`に`cgroup_enable=memory swapaccount=1`を追加したところ、`docker`コマンドが叩けるようになった([参考](https://gihyo.jp/admin/serial/01/linux_containers/0003))。
 
+このままだとroot権限がないと`docker`が利用できないので、`sudo usermod -aG docker $USER`としてユーザをdockerグループに登録。
 
 ##### エディタ、IDE
 公式から[Visual Studio Code](https://code.visualstudio.com/)と
@@ -110,6 +114,5 @@ _保存したら、nvidiaではなくUbuntu側のSystem Settings -> Displaysか�
 [この記事](https://himeji-cs.jp/wiki/Ubuntu%E3%81%A7dGPU/iGPU%E3%81%AE%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%83%A2%E3%83%8B%E3%82%BF%E8%A8%AD%E5%AE%9A)を真似しようと思ったが、まだうまくいかず。
 ハードウェアの一覧を取得する`lshw`コマンドを使うと内蔵グラフィックは認識されているようだがわからないので要調査。
 
-#### 各種言語環境の構築
-TODO
-
+#### 最後に
+ディスプレイの設定がマジわからん問題
