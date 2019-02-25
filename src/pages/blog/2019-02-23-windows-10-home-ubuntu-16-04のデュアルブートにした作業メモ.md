@@ -114,5 +114,25 @@ _保存したら、nvidiaではなくUbuntu側のSystem Settings -> Displaysか�
 [この記事](https://himeji-cs.jp/wiki/Ubuntu%E3%81%A7dGPU/iGPU%E3%81%AE%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%83%A2%E3%83%8B%E3%82%BF%E8%A8%AD%E5%AE%9A)を真似しようと思ったが、まだうまくいかず。
 ハードウェアの一覧を取得する`lshw`コマンドを使うと内蔵グラフィックは認識されているようだがわからないので要調査。
 
+##### 各種言語環境の構築
+###### Python
+neovimの設定に書いた通りanyenvでpyenvを入れているが、ガチで開発したいときは[venv+pipenvを使う](https://paiza.hatenablog.com/entry/2018/07/05/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91%E3%83%BBPython%E3%81%AE%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83venv%E3%81%A8Pipenv%E3%81%AB%E3%82%88%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)。
+
+###### JavaScript
+nを入れるためのnpmを入れて終わったら消す。
+あとはプロジェクトごとにpackage.jsonで管理する。
+
+```
+sudo apt install npm
+sudo npm -g i n
+sudo n stable
+sudo apt uninstall npm
+```
+
+###### Go
+no ideaだったが、[goenv](https://github.com/syndbg/goenv)なるものがあるらしく[anyenvからインストール](https://qiita.com/furuhashin/items/9c0f10045225f40d4189)した。
+なお、Githubの星は500未満、直近コミットは2ヶ月前(2/25時点)だった。
+
+
 ### 最後に
 ディスプレイの設定がマジわからん問題とコードのハイライトが効いていない問題(多分CSS)
