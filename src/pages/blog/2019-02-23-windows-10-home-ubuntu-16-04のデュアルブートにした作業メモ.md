@@ -132,7 +132,9 @@ sudo apt uninstall npm
 ###### Go
 no ideaだったが、[goenv](https://github.com/syndbg/goenv)なるものがあるらしく[anyenvからインストール](https://qiita.com/furuhashin/items/9c0f10045225f40d4189)した。
 なお、Githubの星は500未満、直近コミットは2ヶ月前(2/25時点)だった。
+あとはdepを入れて完了。
 
+この環境でうまく動くか未知数なので必要に応じて直す。
 
 ### 最後に
 ディスプレイの設定がマジわからん問題とコードのハイライトが効いていない問題(多分CSS)
