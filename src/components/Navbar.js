@@ -2,7 +2,6 @@ import React from 'react'
 import website from '../img/website.svg';
 import github from '../img/github.svg'
 import kaggle from '../img/kaggle.svg'
-import bitbucket from '../img/bitbucket.svg'
 
 const Navbar = class extends React.Component {
 
@@ -63,12 +62,6 @@ const Navbar = class extends React.Component {
           <a href="https://github.com/company1101">
               <img src={github} alt="Github" />
               <span>Github</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://bitbucket.org/company1101/">
-            <img src={bitbucket} alt="BitBucket" />
-            <span>Bitbucket</span>
           </a>
         </li>
         <li>
