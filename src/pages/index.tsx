@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { Card } from '../components/Card'
@@ -35,6 +36,7 @@ const App = ({ data }) => {
     const { edges: posts } = data.allMarkdownRemark
     return (
         <Layout>
+            <Helmet title={`HOME`} />
             {posts.map(({ node: post }) => (
                 <Card key={post.id}>
                     <Title to={post.fields.slug}>
@@ -50,6 +52,7 @@ const App = ({ data }) => {
 }
 
 const Title = styled(Link)`
+    margin-bottom: 0.5rem;
     text-align: center;
     font-size: ${fonts.LARGE};
     font-weight: 700;
@@ -63,6 +66,7 @@ const Title = styled(Link)`
 `
 
 const Date = styled.p`
+    margin-bottom: 3rem;
     font-size: ${fonts.SMALLER};
     font-style: italic;
     @media only screen and (max-width: 768px) {
@@ -72,8 +76,10 @@ const Date = styled.p`
 
 const Text = styled.p`
     width: 100%;
+    margin-bottom: 3rem;
     font-weight: 400;
     font-size: ${fonts.SMALL};
+    line-height: 170%;
     @media only screen and (max-width: 768px) {
         font-size: ${fonts.SMALLER};
     }

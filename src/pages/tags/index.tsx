@@ -1,8 +1,13 @@
 import React from 'react'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
+import { kebabCase } from 'lodash'
+
 import Layout from '../../components/Layout'
+import { Card } from '../../components/Card'
+import * as colors from '../../constants/styles/colors'
+import * as fonts from '../../constants/styles/fonts'
 
 const TagsPage = ({
     data: {
@@ -13,34 +18,47 @@ const TagsPage = ({
     },
 }) => (
     <Layout>
-        <section className="section">
-            <Helmet title={`Tags | ${title}`} />
-            <div className="container content">
-                <div className="columns">
-                    <div
-                        className="column is-10 is-offset-1"
-                        style={{ marginBottom: '6rem' }}
-                    >
-                        <h1 className="title is-size-2 is-bold-light">Tags</h1>
-                        <ul className="taglist">
-                            {group.map(tag => (
-                                <li key={tag.fieldValue}>
-                                    <Link
-                                        to={`/tags/${kebabCase(
-                                            tag.fieldValue,
-                                        )}/`}
-                                    >
-                                        {tag.fieldValue} ({tag.totalCount})
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <Helmet title={`Tags | ${title}`} />
+        <Card>
+            <Title>Tag List</Title>
+            <List>
+                {group.map(tag => (
+                    <Item key={tag.fieldValue}>
+                        <StyledLink to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                            {tag.fieldValue} ({tag.totalCount})
+                        </StyledLink>
+                    </Item>
+                ))}
+            </List>
+        </Card>
     </Layout>
 )
+
+const Title = styled.h1`
+    margin-bottom: 3rem;
+    font-size: ${fonts.LARGE};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.NORMAL};
+    }
+`
+
+const List = styled.ul``
+
+const Item = styled.li`
+    margin-bottom: 1rem;
+`
+
+const StyledLink = styled(Link)`
+    font-size: ${fonts.NORMAL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALL};
+    }
+    font-weight: 500;
+    color: ${colors.PRIMARY};
+    &:hover {
+        color: ${colors.PRIMARY_INVERT};
+    }
+`
 
 export default TagsPage
 

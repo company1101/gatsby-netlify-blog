@@ -1,15 +1,21 @@
 import React from 'react'
-import { kebabCase } from 'lodash'
 import { graphql, Link } from 'gatsby'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import Prism from 'prismjs'
+import { kebabCase } from 'lodash'
 
 import Layout from '../components/Layout'
 import { Card } from '../components/Card'
 import Content, { HTMLContent } from '../components/Content'
 
+import * as colors from '../constants/styles/colors'
+import * as fonts from '../constants/styles/fonts'
+
 export const BlogPostTemplate = ({
     content,
     contentComponent,
+    date,
     description,
     tags,
     title,
@@ -18,91 +24,141 @@ export const BlogPostTemplate = ({
 
     return (
         <Card>
-            <div className="columns">
-                <div className="column is-10 is-offset-1">
-                    <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                        {title}
-                    </h1>
-                    <p>{description}</p>
-                    <PostContent content={content} />
-                    {tags && tags.length ? (
-                        <div style={{ marginTop: `4rem` }}>
-                            <h4>Tags</h4>
-                            <ul className="taglist">
-                                {tags.map(tag => (
-                                    <li key={tag + `tag`}>
-                                        <Link to={`/tags/${kebabCase(tag)}/`}>
-                                            {tag}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ) : null}
-                </div>
-            </div>
+            <header>
+                <Title>{title}</Title>
+                <Date>{date}</Date>
+                <Description>{description}</Description>
+            </header>
+            <Post>
+                <PostContent content={content} />
+            </Post>
+            {tags && tags.length ? (
+                <List>
+                    {tags.map(tag => (
+                        <Item key={tag + `tag`}>
+                            <StyledLink to={`/tags/${kebabCase(tag)}/`}>
+                                {tag}
+                            </StyledLink>
+                        </Item>
+                    ))}
+                </List>
+            ) : null}
         </Card>
     )
 }
 
-// .column {
-//     font-size: $font-small;
-//     margin-top: 30px;
-//     margin-bottom: 30px;
-//     @media only screen and (max-width: 768px) {
-//         font-size: $font-smaller
-//     }
-//     h1 {
-//         font-size: $font-largest !important;
-//         @media only screen and (max-width: 768px) {
-//             font-size: $font-large !important;
-//         }
-//     }
-//     h2 {
-//         font-size: $font-large;
-//         @media only screen and (max-width: 768px) {
-//             font-size: $font-small;
-//         }
-//     }
-//     h3 {
-//         font-size: $font-small;
-//         @media only screen and (max-width: 768px) {
-//             font-size: $font-smaller;
-//         }
-//     }
-//     a {
-//         color: $primary;
-//         font-weight: 500;
-//         &:hover {
-//             color: $primary-invert;
-//         }
-//     }
-// }
+const Title = styled.h1`
+    margin: 3rem 0 0.5rem;
+    text-align: center;
+    font-size: ${fonts.LARGEST};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.LARGE};
+    }
+`
 
-// .content .taglist {
-//     list-style: none;
-//     margin-bottom: 0;
-//     margin-left: 0;
-//     margin-right: 15px;
-//     margin-top: 15px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: left;
-//     align-items: center;
-//     &>li {
-//         padding: 0 20px 10px 0;
-//         margin-bottom: 15px;
-//         margin-top: 0;
-//     }
-//     .content .date {
-//         font-size: $font-smaller;
-//         @media only screen and (max-width: 768px) {
-//             font-size: $font-smallest;
-//         }
-//         font-style: italic;
-//         margin-bottom: 30px !important;
-//     }
-// }
+const Date = styled.p`
+    font-style: italic;
+    font-size: ${fonts.SMALLER};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALLEST};
+    }
+`
+
+const Description = styled.p`
+    margin-bottom: 4rem;
+    text-align: center;
+    font-size: ${fonts.SMALL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALLER};
+    }
+`
+
+const Post = styled.div`
+    font-size: ${fonts.SMALL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALLER};
+    }
+
+    & p {
+        line-height: 170%;
+    }
+
+    & ol,
+    & ul {
+        margin: 1.2rem 0 1.2rem 2rem;
+    }
+
+    & ul {
+        list-style-type: disc;
+    }
+
+    & h2 {
+        margin: 2rem 0 0.5rem;
+        font-size: ${fonts.LARGE};
+        @media only screen and (max-width: 768px) {
+            font-size: ${fonts.SMALL};
+        }
+    }
+    & h3 {
+        margin: 2rem 0 0.5rem;
+        font-size: ${fonts.NORMAL};
+        @media only screen and (max-width: 768px) {
+            font-size: ${fonts.SMALL};
+        }
+    }
+    & h4 {
+        margin: 2rem 0 0.5rem;
+        font-size: ${fonts.SMALL};
+        @media only screen and (max-width: 768px) {
+            font-size: ${fonts.SMALLER};
+        }
+    }
+    & h2:first-child,
+    & h3:first-child,
+    & h4:first-child {
+        margin-top: 0;
+    }
+
+    & a {
+        font-weight: 500;
+        color: ${colors.PRIMARY};
+        &:hover {
+            color: ${colors.PRIMARY_INVERT};
+        }
+    }
+
+    & pre[class^='language-'] {
+        margin: 1rem 0 3rem;
+        overflow-x: auto;
+    }
+
+    & code[class^='language-'] {
+        word-break: break-all;
+    }
+
+    .line-numbers .line-numbers-rows {
+        top: 1.2rem;
+        left: 1.5rem !important;
+    }
+`
+
+const List = styled.ul`
+    align-self: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 3rem;
+`
+
+const Item = styled.li``
+
+const StyledLink = styled(Link)`
+    color: ${colors.PRIMARY};
+    &:hover {
+        color: ${colors.PRIMARY_INVERT};
+    }
+`
 
 const BlogPost = ({ data }) => {
     const { markdownRemark: post } = data

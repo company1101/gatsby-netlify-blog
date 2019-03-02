@@ -7,6 +7,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-tslint',
       options:[
@@ -15,6 +16,19 @@ module.exports = {
           exclude: /(node_modules|cache|public)/
         }
       ]
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-131373055-2",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "blog.kgjoi.com",
+      },
     },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -63,6 +77,7 @@ module.exports = {
             resolve: 'gatsby-remark-prismjs',
             options: {
               classPrefix: 'language-',
+              showLineNumbers: true,
             },
           },
           {

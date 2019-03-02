@@ -1,52 +1,79 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
+import styled from 'styled-components'
+
+import { Card } from '../components/Card'
 import Layout from '../components/Layout'
 
-class TagRoute extends React.Component {
-    public render() {
-        const posts = this.props.data.allMarkdownRemark.edges
-        const postLinks = posts.map(post => (
-            <li key={post.node.fields.slug}>
-                <Link to={post.node.fields.slug} className="link-title">
-                    {post.node.frontmatter.title}
-                </Link>
-            </li>
-        ))
-        const tag = this.props.pageContext.tag
-        const title = this.props.data.site.siteMetadata.title
-        const totalCount = this.props.data.allMarkdownRemark.totalCount
-        const tagHeader = `${totalCount} post${
-            totalCount === 1 ? '' : 's'
-        } tagged with “${tag}”`
+import * as colors from '../constants/styles/colors'
+import * as fonts from '../constants/styles/fonts'
 
-        return (
-            <Layout>
-                <section className="section">
-                    <Helmet title={`${tag} | ${title}`} />
-                    <div className="container content">
-                        <div className="columns">
-                            <div
-                                className="column is-10 is-offset-1"
-                                style={{ marginBottom: '6rem' }}
-                            >
-                                <div className="tag-header">{tagHeader}</div>
-                                <ul className="taglist">{postLinks}</ul>
-                                <p>
-                                    <Link to="/tags/" className="link-all-tag">
-                                        Browse all tags
-                                    </Link>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </Layout>
-        )
-    }
+const App = props => {
+    const posts = props.data.allMarkdownRemark.edges
+    const tag = props.pageContext.tag
+    const title = props.data.site.siteMetadata.title
+    const totalCount = props.data.allMarkdownRemark.totalCount
+    const tagHeader = `${totalCount} post${
+        totalCount === 1 ? '' : 's'
+    } tagged with “${tag}”`
+
+    return (
+        <Layout>
+            <Helmet title={`${tag} | ${title}`} />
+            <Card>
+                <Header>{tagHeader}</Header>
+                <List>
+                    {posts.map(post => (
+                        <Item key={post.node.fields.slug}>
+                            <LinkToPage to={post.node.fields.slug}>
+                                {post.node.frontmatter.title}
+                            </LinkToPage>
+                        </Item>
+                    ))}
+                </List>
+                <LinkToAllTags to="/tags/">Browse all tags</LinkToAllTags>
+            </Card>
+        </Layout>
+    )
 }
 
-export default TagRoute
+const Header = styled.h2`
+    margin-bottom: 3rem;
+    font-size: ${fonts.SMALL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALLER};
+    }
+`
+
+const List = styled.ul`
+    margin-bottom: 3rem;
+`
+
+const Item = styled.li`
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+`
+
+const LinkToPage = styled(Link)`
+    font-size: ${fonts.NORMAL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALL};
+    }
+    font-weight: 700;
+    color: ${colors.PRIMARY};
+    &:hover {
+        color: ${colors.PRIMARY_INVERT};
+    }
+`
+
+const LinkToAllTags = styled(Link)`
+    color: ${colors.TEXT};
+    &:hover {
+        color: ${colors.PRIMARY};
+    }
+`
 
 export const tagPageQuery = graphql`
     query TagPage($tag: String) {
@@ -74,3 +101,5 @@ export const tagPageQuery = graphql`
         }
     }
 `
+
+export default App

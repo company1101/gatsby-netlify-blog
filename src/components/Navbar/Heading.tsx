@@ -20,7 +20,8 @@ const StyledLink = styled(Link)`
     align-items: center;
     width: 18rem;
     height: 18rem;
-    margin-bottom: 0.5rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     border-radius: 100%;
     overflow: hidden;
 `
@@ -33,7 +34,6 @@ const Title = styled.h2`
     font-size: ${fonts.LARGEST};
     font-weight: 700;
     color: ${colors.TEXT};
-
     @media only screen and (max-width: 768px) {
         font-size: ${fonts.LARGE};
     }

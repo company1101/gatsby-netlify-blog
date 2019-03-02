@@ -7,8 +7,6 @@ import Footer from './Footer'
 
 import * as colors from '../constants/styles/colors'
 
-import './styles/all.scss'
-
 const App = ({ children }) => (
     <React.Fragment>
         <Meta />

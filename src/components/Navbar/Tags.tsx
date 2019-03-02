@@ -23,7 +23,7 @@ const List = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 `
 
 const Item = styled.li`
