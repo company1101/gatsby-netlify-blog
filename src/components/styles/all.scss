@@ -1,0 +1,23 @@
+// TODO: bulma依存しているけどtagの与え方が微妙で
+// !importantしないとカスタマイズしにくいので全部自分でかく(いつになることやら)
+$primary-invert: #7adae2;
+$primary: #34C6D3;
+$body-color: #fcfcfc;
+$text-color: rgba(0, 0, 0, 0.8);
+$font-largest: 32px;
+$font-large: 24px;
+$font-normal: 18px;
+$font-small: 14px;
+$font-smaller: 12px;
+$font-smallest: 11px;
+
+.tag-header {
+    font-size: $font-small;
+    @media only screen and (max-width: 768px) {
+        font-size: $font-smaller;
+    }
+}
+
+.link-all-tag {
+    color: $text-color;
+}

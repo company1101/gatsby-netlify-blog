@@ -6,6 +6,16 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-tslint',
+      options:[
+        {
+          test: /\.ts$|\.tsx$/,
+          exclude: /(node_modules|cache|public)/
+        }
+      ]
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -67,7 +77,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        modulePath: `${__dirname}/src/cms/cms.ts`,
       },
     },
     {
