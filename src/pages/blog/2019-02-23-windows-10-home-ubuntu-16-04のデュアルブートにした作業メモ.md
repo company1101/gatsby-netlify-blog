@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: BlogPost
 title: Windows 10 Home+Ubuntu 16.04のデュアルブートにした作業メモ
 date: 2019-02-23T09:45:54.420Z
 description: Dockerとかいろいろ使いたいのでやってみたの巻

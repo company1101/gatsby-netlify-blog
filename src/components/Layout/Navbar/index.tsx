@@ -5,7 +5,7 @@ import Heading from './Heading'
 import Tags from './Tags'
 import Links from './Links'
 
-import * as colors from '../../constants/styles/colors'
+import * as colors from '../../../constants/styles/colors'
 
 const App = () => (
     <Nav>

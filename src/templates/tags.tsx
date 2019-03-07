@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Card } from '../components/Card'
@@ -75,7 +75,7 @@ const LinkToAllTags = styled(Link)`
     }
 `
 
-export const tagPageQuery = graphql`
+export const query = graphql`
     query TagPage($tag: String) {
         site {
             siteMetadata {

@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: BlogPost
 title: Gatsby+Netlify+Netilfy CMSでブログを作ってみた
 date: 2019-02-02T13:08:15.081Z
 description: 爆速なイケてるブログが5分で作れて感動した話

@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import * as colors from '../../constants/styles/colors'
-import * as fonts from '../../constants/styles/fonts'
+import * as colors from '../../../constants/styles/colors'
+import * as fonts from '../../../constants/styles/fonts'
 
 const App = () => (
     <React.Fragment>

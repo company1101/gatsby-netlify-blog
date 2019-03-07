@@ -1,12 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import * as colors from '../../constants/styles/colors'
-import * as fonts from '../../constants/styles/fonts'
+import * as colors from '../../../constants/styles/colors'
+import * as fonts from '../../../constants/styles/fonts'
 
-import website from '../../img/website.svg'
-import github from '../../img/github.svg'
-import kaggle from '../../img/kaggle.svg'
+import website from '../../../img/website.svg'
+import github from '../../../img/github.svg'
+import kaggle from '../../../img/kaggle.svg'
 
 const App = () => (
     <List>

@@ -5,9 +5,7 @@ import Meta from './Meta'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-import * as colors from '../constants/styles/colors'
-
-const App = ({ children }) => (
+const App = ({ children }: React.ComponentProps) => (
     <React.Fragment>
         <Meta />
         <GlobalStyle />
@@ -28,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: Roboto, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,sans-serif;
         box-sizing: border-box;
         overflow-x: hidden;
-        background-color: ${colors.BODY};
+        background-color: #fcfcfc;
     }
 
     *,

@@ -1,6 +1,6 @@
 import * as React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { Card } from '../components/Card'
@@ -8,35 +8,13 @@ import Layout from '../components/Layout'
 import * as colors from '../constants/styles/colors'
 import * as fonts from '../constants/styles/fonts'
 
-export const pageQuery = graphql`
-    query IndexQuery {
-        allMarkdownRemark(
-            sort: { order: DESC, fields: [frontmatter___date] }
-            filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-            edges {
-                node {
-                    excerpt(pruneLength: 400)
-                    id
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        title
-                        templateKey
-                        date(formatString: "MMMM DD, YYYY")
-                    }
-                }
-            }
-        }
-    }
-`
-
 const App = ({ data }) => {
     const { edges: posts } = data.allMarkdownRemark
     return (
         <Layout>
-            <Helmet title={`HOME`} />
+            <Helmet>
+                <title>HOME</title>
+            </Helmet>
             {posts.map(({ node: post }) => (
                 <Card key={post.id}>
                     <Title to={post.fields.slug}>
@@ -102,3 +80,27 @@ const Button = styled(Link)`
 `
 
 export default App
+
+export const query = graphql`
+    query IndexQuery {
+        allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___date] }
+            filter: { frontmatter: { templateKey: { eq: "BlogPost" } } }
+        ) {
+            edges {
+                node {
+                    excerpt(pruneLength: 400)
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        title
+                        templateKey
+                        date(formatString: "MMMM DD, YYYY")
+                    }
+                }
+            }
+        }
+    }
+`

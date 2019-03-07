@@ -8,6 +8,8 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-manifest',
     {
       resolve: 'gatsby-plugin-tslint',
       options:[
