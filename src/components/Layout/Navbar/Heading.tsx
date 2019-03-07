@@ -18,16 +18,16 @@ const StyledLink = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18rem;
-    height: 18rem;
+    width: 16rem;
+    height: 16rem;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-radius: 100%;
     overflow: hidden;
 `
 
 const Img = styled.img`
-    transform: scale(0.55);
+    transform: scale(0.5);
 `
 
 const Title = styled.h2`

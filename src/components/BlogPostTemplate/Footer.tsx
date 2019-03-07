@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { kebabCase } from 'lodash'
 
+import * as fonts from '../../constants/styles/fonts'
 import * as colors from '../../constants/styles/colors'
 
 interface IProps {
@@ -32,7 +33,10 @@ const List = styled.ul`
     justify-content: left;
     align-items: center;
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    font-size: ${fonts.SMALL};
+    @media only screen and (max-width: 768px) {
+        font-size: ${fonts.SMALLER};
+    }
 `
 
 const Item = styled.li``

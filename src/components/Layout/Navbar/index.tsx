@@ -29,11 +29,11 @@ const Nav = styled.nav`
 `
 
 const HeadingBox = styled.div`
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 `
 
 const TagsBox = styled.div`
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 `
 
 const LinksBox = styled.div``

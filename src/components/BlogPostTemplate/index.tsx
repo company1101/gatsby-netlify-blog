@@ -21,6 +21,8 @@ const App = ({ content, date, description, tags, title }: IProps) => (
 )
 
 const Post = styled.div`
+    width: 100%;
+
     font-size: ${fonts.SMALL};
     @media only screen and (max-width: 768px) {
         font-size: ${fonts.SMALLER};
@@ -76,12 +78,13 @@ const Post = styled.div`
 
     & pre[class^='language-'] {
         margin: 1rem 0 3rem;
-        padding-left: 3.8rem;
-        overflow-x: auto;
+        overflow-x: scroll;
+        & > code {
+            white-space: pre;
+        }
     }
 
     & code[class^='language-'] {
-        word-break: break-all;
         font-size: ${fonts.SMALLER};
         @media only screen and (max-width: 768px) {
             font-size: ${fonts.SMALLEST};
@@ -89,11 +92,14 @@ const Post = styled.div`
     }
 
     .line-numbers .line-numbers-rows {
-        top: 1.6rem;
+        top: 2rem;
         left: 1rem !important;
         font-size: ${fonts.SMALLER};
         @media only screen and (max-width: 768px) {
             font-size: ${fonts.SMALLEST};
+        }
+        & > span:not(:last-child) {
+            margin-bottom: 1rem;
         }
     }
 `

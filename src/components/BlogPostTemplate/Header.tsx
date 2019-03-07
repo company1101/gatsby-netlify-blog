@@ -20,7 +20,7 @@ const App = ({ date, description, title }: IProps) => {
 }
 
 const Title = styled.h1`
-    margin: 3rem 0 0.5rem;
+    margin-bottom: 0.5rem;
     text-align: center;
     font-size: ${fonts.LARGEST};
     @media only screen and (max-width: 768px) {
