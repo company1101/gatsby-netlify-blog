@@ -39,7 +39,7 @@ const App = () => (
             href="/img/favicon-16x16.png"
         />
 
-        <link rel="manifest" href="/img/site.webmanifest" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="shortcut icon" href="/img/favicon.ico" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="msapplication-config" content="/img/browserconfig.xml" />
