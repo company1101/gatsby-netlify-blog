@@ -10,7 +10,7 @@ export const Card = styled.div`
     max-width: 150rem;
     width: 90%;
     margin: 0 auto;
-    padding: 10rem 6rem;
+    padding: 5rem;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     background-color: white;
     color: ${colors.TEXT};
