@@ -90,18 +90,6 @@ const Post = styled.div`
             font-size: ${fonts.SMALLEST};
         }
     }
-
-    .line-numbers .line-numbers-rows {
-        top: 2rem;
-        left: 1rem !important;
-        font-size: ${fonts.SMALLER};
-        @media only screen and (max-width: 768px) {
-            font-size: ${fonts.SMALLEST};
-        }
-        & > span:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-    }
 `
 
 export default App
