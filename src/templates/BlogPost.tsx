@@ -22,6 +22,7 @@ const App = ({ data }) => {
                 description={post.frontmatter.description}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
+                isPreview={false}
             />
         </Layout>
     )

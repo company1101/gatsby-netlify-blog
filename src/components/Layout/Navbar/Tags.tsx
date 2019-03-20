@@ -7,14 +7,13 @@ import * as fonts from '../../../constants/styles/fonts'
 const App = () => (
     <React.Fragment>
         <List>
-            <Item>#React</Item>
-            <Item>#TypeScript</Item>
             <Item>#Go</Item>
+            <Item>#Python</Item>
+            <Item>#Rust</Item>
         </List>
         <List>
-            <Item>#Kotlin</Item>
-            <Item>#Python</Item>
-            <Item>#ML</Item>
+            <Item>#TypeScript</Item>
+            <Item>#React</Item>
         </List>
     </React.Fragment>
 )
