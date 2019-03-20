@@ -17,19 +17,22 @@ const App = ({
     tags,
     title,
     isPreview,
-}: IProps) => (
-    <Card>
-        <Header title={title} data={date} description={description} />
-        <Post>
-            {!isPreview ? (
+}: IProps) => {
+    console.log(content)
+    return (
+        <Card>
+            <Header title={title} data={date} description={description} />
+            <Post>
+                {/* {!isPreview ? ( */}
                 <div dangerouslySetInnerHTML={{ __html: content }} />
-            ) : (
+                {/* ) : (
                 <div>{content}</div>
-            )}
-        </Post>
-        <Footer tags={tags} />
-    </Card>
-)
+            )} */}
+            </Post>
+            <Footer tags={tags} />
+        </Card>
+    )
+}
 
 const Post = styled.div`
     width: 100%;
