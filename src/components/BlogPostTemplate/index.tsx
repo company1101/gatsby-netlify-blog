@@ -20,13 +20,13 @@ const App = ({
 }: IProps) => (
     <Card>
         <Header title={title} data={date} description={description} />
-        <Post>
-            {!isPreview ? (
+        {!isPreview ? (
+            <Post>
                 <div dangerouslySetInnerHTML={{ __html: content }} />
-            ) : (
-                <div>{content}</div>
-            )}
-        </Post>
+            </Post>
+        ) : (
+            <div>{content}</div>
+        )}
         <Footer tags={tags} />
     </Card>
 )
