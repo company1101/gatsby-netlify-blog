@@ -19,7 +19,7 @@ const App = ({ date, description, title }: IProps) => {
     )
 }
 
-const Title = styled.h2`
+const Title = styled.h1`
     margin-bottom: 0.5rem;
     text-align: center;
     font-size: ${fonts.LARGEST};
