@@ -6,7 +6,7 @@ const Preview = ({ entry, widgetFor }) => {
     console.log(widgetFor('body'))
     return (
         <BlogPostTemplate
-            content={Object.keys(widgetFor('body'))}
+            content={widgetFor('body')[0]}
             description={entry.getIn(['data', 'description'])}
             tags={entry.getIn(['data', 'tags'])}
             title={entry.getIn(['data', 'title'])}
