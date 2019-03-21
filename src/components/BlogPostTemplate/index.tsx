@@ -21,7 +21,11 @@ const App = ({
     <Card>
         <Header title={title} data={date} description={description} />
         <Post>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            {isPreview ? (
+                <div>{content}</div>
+            ) : (
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+            )}
         </Post>
         <Footer tags={tags} />
     </Card>
