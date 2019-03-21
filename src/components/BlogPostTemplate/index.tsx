@@ -10,6 +10,9 @@ import * as colors from '../../constants/styles/colors'
 
 type IProps = IHeaderProps & IFooterProps
 
+// <Post>
+//     <div dangerouslySetInnerHTML={{ __html: content }} />
+// </Post>
 const App = ({
     content,
     date,
@@ -20,13 +23,7 @@ const App = ({
 }: IProps) => (
     <Card>
         <Header title={title} data={date} description={description} />
-        {/* {!isPreview ? (
-            <Post>
-                <div dangerouslySetInnerHTML={{ __html: content }} />
-            </Post>
-        ) : ( */}
         <div>{content}</div>
-        {/* )} */}
         <Footer tags={tags} />
     </Card>
 )
