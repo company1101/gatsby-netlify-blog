@@ -23,7 +23,7 @@ const App = ({
 }: IProps) => (
     <Card>
         <Header title={title} data={date} description={description} />
-        <div>{content}</div>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
         <Footer tags={tags} />
     </Card>
 )
