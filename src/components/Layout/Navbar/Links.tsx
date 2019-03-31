@@ -17,7 +17,7 @@ const App = () => (
             </Link>
         </Item>
         <Item>
-            <Link href="https://github.com/company1101">
+            <Link href="https://github.com/tapih">
                 <Img src={github} alt="Github" />
                 <Name>Github</Name>
             </Link>
