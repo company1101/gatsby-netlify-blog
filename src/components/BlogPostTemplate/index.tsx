@@ -52,6 +52,11 @@ const Post = styled.div`
         list-style-type: disc;
     }
 
+    & ul > li,
+    & ol > li {
+        margin: 0.5rem 0;
+    }
+
     & h2 {
         margin: 2rem 0 0.5rem;
         font-size: ${fonts.LARGE};
